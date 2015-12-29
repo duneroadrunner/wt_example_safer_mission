@@ -9,8 +9,8 @@
 #include <Wt/WTimer>
 #include "CountDownWidget.h"
 
-CountDownWidget::CountDownWidget(int start, int stop, unsigned msec,
-				 WContainerWidget *parent)
+CountDownWidget::CountDownWidget(mse::CInt start, mse::CInt stop, mse::CSize_t msec,
+	mse::TRegisteredPointerForLegacy<WContainerWidget> parent)
   : WText(parent),
     done_(this),
     start_(start),
@@ -19,8 +19,8 @@ CountDownWidget::CountDownWidget(int start, int stop, unsigned msec,
   stop_ = std::min(start_ - 1, stop_);  // stop must be smaller than start
   current_ = start_;
 
-  timer_ = new WTimer(this);
-  timer_->setInterval(msec);
+  timer_ = mse::registered_new_for_legacy<WTimer>(this);
+  timer_->setInterval(mse::CInt(msec));
   timer_->timeout().connect(this, &CountDownWidget::timerTick);
   timer_->start();
 

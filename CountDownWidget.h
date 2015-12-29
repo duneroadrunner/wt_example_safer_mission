@@ -8,6 +8,7 @@
 #define WCOUNTDOWNWIDGET_H_
 
 #include <Wt/WText>
+#include "mseregistered.h"
 
 namespace Wt {
   class WTimer;
@@ -30,8 +31,8 @@ public:
    * The widget will count down from start to stop, decrementing
    * the number every msec milliseconds.
    */
-  CountDownWidget(int start, int stop, unsigned msec,
-		  WContainerWidget *parent = 0);
+  CountDownWidget(mse::CInt start, mse::CInt stop, mse::CSize_t msec,
+		  mse::TRegisteredPointerForLegacy<WContainerWidget> parent = 0);
 
   /*! \brief Signal emitted when the countdown reached stop.
    */
@@ -43,12 +44,12 @@ public:
 
 private:
   Wt::Signal<void> done_;
-  int start_;
-  int stop_;
+  mse::CInt start_;
+  mse::CInt stop_;
 
-  int current_;
+  mse::CInt current_;
 
-  WTimer *timer_;
+  mse::TRegisteredPointerForLegacy<WTimer> timer_;
 
   /*! \brief Process one timer tick.
    */
