@@ -33,6 +33,7 @@ public:
    */
   CountDownWidget(mse::CInt start, mse::CInt stop, mse::CSize_t msec,
 		  mse::TRegisteredPointerForLegacy<WContainerWidget> parent = 0);
+  virtual ~CountDownWidget() {}
 
   /*! \brief Signal emitted when the countdown reached stop.
    */
