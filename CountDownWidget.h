@@ -8,7 +8,7 @@
 #define WCOUNTDOWNWIDGET_H_
 
 #include <Wt/WText>
-#include "mseregistered.h"
+#include "mseregisteredforlegacy.h"
 
 namespace Wt {
   class WTimer;
