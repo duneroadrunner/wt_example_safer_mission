@@ -10,7 +10,7 @@
 #include "CountDownWidget.h"
 
 CountDownWidget::CountDownWidget(mse::CInt start, mse::CInt stop, mse::CSize_t msec,
-	mse::TRegisteredPointerForLegacy<WContainerWidget> parent)
+	mse::TSaferPtrForLegacy<WContainerWidget> parent)
   : WText(parent),
     done_(this),
     start_(start),

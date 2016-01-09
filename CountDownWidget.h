@@ -32,7 +32,7 @@ public:
    * the number every msec milliseconds.
    */
   CountDownWidget(mse::CInt start, mse::CInt stop, mse::CSize_t msec,
-		  mse::TRegisteredPointerForLegacy<WContainerWidget> parent = 0);
+		  mse::TSaferPtrForLegacy<WContainerWidget> parent = 0);
   virtual ~CountDownWidget() {}
 
   /*! \brief Signal emitted when the countdown reached stop.
