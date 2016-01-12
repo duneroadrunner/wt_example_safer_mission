@@ -11,6 +11,7 @@
 #include <Wt/WText>
 
 #include "CountDownWidget.h"
+#include "mseregisteredforlegacy.h"
 
 mse::TRegisteredPointerForLegacy<WApplication> createApplication(const WEnvironment& env)
 {
