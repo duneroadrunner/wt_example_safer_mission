@@ -11,28 +11,28 @@
 #include <Wt/WText>
 
 #include "CountDownWidget.h"
-#include "mseregisteredforlegacy.h"
+#include "wt_ext.h"
 
-mse::TRegisteredPointerForLegacy<WApplication> createApplication(const WEnvironment& env)
+Wt::WWidgetPtr<WApplication> createApplication(const WEnvironment& env)
 {
-  mse::TRegisteredPointerForLegacy<WApplication> appl = mse::registered_new_for_legacy<WApplication>(env);
+  Wt::WWidgetPtr<WApplication> appl = Wt::WWidgetNew<WApplication>(env);
 
   new WText("<h1>Your mission</h1>", appl->root());
-  mse::TRegisteredPointerForLegacy<WText> secret
-	  = mse::registered_new_for_legacy<WText>("Your mission, Jim, should you accept, is to create solid "
+  Wt::WWidgetPtr<WText> secret
+	  = Wt::WWidgetNew<WText>("Your mission, Jim, should you accept, is to create solid "
 		"web applications.",
 		appl->root());
 
   new WBreak(appl->root()); new WBreak(appl->root());
 
   new WText("This program will quit in ", appl->root());
-  mse::TRegisteredPointerForLegacy<CountDownWidget> countdown = mse::registered_new_for_legacy<CountDownWidget>(10, 0, 1000, appl->root());
+  Wt::WWidgetPtr<CountDownWidget> countdown = Wt::WWidgetNew<CountDownWidget>(10, 0, 1000, appl->root());
   new WText(" seconds.", appl->root());
 
   new WBreak(appl->root()); new WBreak(appl->root());
 
-  mse::TRegisteredPointerForLegacy<WPushButton> cancelButton = mse::registered_new_for_legacy<WPushButton>("Cancel!", appl->root());
-  mse::TRegisteredPointerForLegacy<WPushButton> quitButton = mse::registered_new_for_legacy<WPushButton>("Quit", appl->root());
+  Wt::WWidgetPtr<WPushButton> cancelButton = Wt::WWidgetNew<WPushButton>("Cancel!", appl->root());
+  Wt::WWidgetPtr<WPushButton> quitButton = Wt::WWidgetNew<WPushButton>("Quit", appl->root());
   quitButton->clicked().connect((WApplication*)appl, &WApplication::quit);
 
   countdown->done().connect((WApplication*)appl, &WApplication::quit);

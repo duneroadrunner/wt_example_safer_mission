@@ -8,7 +8,7 @@
 #define WCOUNTDOWNWIDGET_H_
 
 #include <Wt/WText>
-#include "mseregisteredforlegacy.h"
+#include "wt_ext.h"
 
 namespace Wt {
   class WTimer;
@@ -50,7 +50,7 @@ private:
 
   mse::CInt current_;
 
-  mse::TRegisteredPointerForLegacy<WTimer> timer_;
+  Wt::WWidgetPtr<WTimer> timer_;
 
   /*! \brief Process one timer tick.
    */

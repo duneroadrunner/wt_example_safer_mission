@@ -19,7 +19,7 @@ CountDownWidget::CountDownWidget(mse::CInt start, mse::CInt stop, mse::CSize_t m
   stop_ = std::min(start_ - 1, stop_);  // stop must be smaller than start
   current_ = start_;
 
-  timer_ = mse::registered_new_for_legacy<WTimer>(this);
+  timer_ = Wt::WWidgetNew<WTimer>(this);
   timer_->setInterval(mse::CInt(msec));
   timer_->timeout().connect(this, &CountDownWidget::timerTick);
   timer_->start();
